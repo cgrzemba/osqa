@@ -1444,7 +1444,7 @@ a string that contains the response entity body.
                 elif isinstance(e, socket.timeout):
                     content = "Request Timeout"
                     response = Response( {
-                            "content-type": "text/plain",
+                            "Content-Type": "text/plain",
                             "status": "408",
                             "content-length": len(content)
                             })
@@ -1452,7 +1452,7 @@ a string that contains the response entity body.
                 else:
                     content = str(e)
                     response = Response( {
-                            "content-type": "text/plain",
+                            "Content-Type": "text/plain",
                             "status": "400",
                             "content-length": len(content)
                             })

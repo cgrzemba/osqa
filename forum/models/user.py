@@ -448,6 +448,8 @@ class User(BaseModel, DjangoUser):
             suspension = self.suspension
 
             if suspension and suspension.extra.get('bantype', None) == 'forxdays' and (
+            # if suspension and getattr(suspension, 'extra', None) is not None and getattr(suspension, 'extra', None).get('bantype', None) == 'forxdays' and (
+
             datetime.datetime.now() > suspension.action_date + datetime.timedelta(
                     days=int(suspension.extra.get('forxdays', 365)))):
                 suspension.cancel()

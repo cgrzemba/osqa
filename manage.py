@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/opt/csw/bin/python2.7
 import os
 import sys
 

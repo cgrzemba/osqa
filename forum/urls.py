@@ -26,7 +26,7 @@ else:
 
 core_urls = (
     url(r'^$', app.readers.index, name='index'),
-    url(r'^%s(.*)' % _('nimda/'), admin.site.urls),
+    # url(r'^%s(.*)' % _('nimda/'), admin.site.urls),
                         
     url(r'^sitemap.xml$', 'forum.sitemap.index', {'sitemaps': sitemaps}),
     url(r'^sitemap-(?P<section>.+)-(?P<page>\d+)\.xml$', 'forum.sitemap.sitemap', {'sitemaps': sitemaps}, name="sitemap_section_page"),
