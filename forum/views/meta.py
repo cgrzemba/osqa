@@ -37,11 +37,15 @@ def static(request, title, content):
 def media(request, skin, path):
     response = serve(request, "%s/media/%s" % (skin, path),
                  document_root=os.path.join(os.path.dirname(os.path.dirname(__file__)), 'skins').replace('\\', '/'))
-    content_type = response['content-type']
+    try:
+        content_type = response['Content-Type']
+    except KeyError as e:
+	logging.error("{0} available items: {1}".format(e,response))
+        return response
     if ('charset=' not in content_type):
         if (content_type.startswith('text') or content_type=='application/x-javascript'):
             content_type += '; charset=utf-8'
-            response['content-type'] = content_type
+            response['Content-Type'] = content_type
     return response
 
 
