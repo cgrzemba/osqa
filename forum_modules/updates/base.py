@@ -176,11 +176,11 @@ def check_for_updates():
 def update_trigger():
     # Trigger the update process
     now = datetime.datetime.now()
-    if (now - settings.LATEST_UPDATE_DATETIME) > datetime.timedelta(days=1):
-        try:
-            update_status = check_for_updates()
-            logging.log(logging.INFO, smart_unicode("Update process has been triggered: %s" % update_status))
-        except Exception, e:
-            logging.error(smart_unicode(e))
-        finally:
-            settings.LATEST_UPDATE_DATETIME.set_value(now)
+    try:
+        if (now - settings.LATEST_UPDATE_DATETIME ) > datetime.timedelta(days=1):
+                update_status = check_for_updates()
+                logging.log(logging.INFO, smart_unicode("Update process has been triggered: %s" % update_status))
+    except Exception, e:
+                logging.error(smart_unicode(e))
+    finally:
+                settings.LATEST_UPDATE_DATETIME.set_value(now)
