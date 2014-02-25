@@ -24,6 +24,7 @@ from forum.actions import QuestionViewAction
 from forum.http_responses import HttpResponseUnauthorized
 from forum.feed import RssQuestionFeed, RssAnswerFeed
 from forum.utils.pagination import generate_uri
+from django.utils.http import urlquote
 
 import decorators
 
