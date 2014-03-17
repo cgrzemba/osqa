@@ -1,13 +1,13 @@
 from django.utils.translation import ungettext, ugettext as _
 from django.core.urlresolvers import reverse
 from django.db.models import F
+from django.contrib import messages
 from forum.models.action import ActionProxy
 from forum.models import Award, Badge, ValidationHash, User
 from forum import settings, REQUEST_HOLDER
 from forum.settings import APP_SHORT_NAME
 from forum.utils.mail import send_template_email
 
-from django.contrib import messages
 
 class UserJoinsAction(ActionProxy):
     verb = _("joined")
